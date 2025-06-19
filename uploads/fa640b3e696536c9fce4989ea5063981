@@ -1,0 +1,4 @@
+name,email,phone,source_id,lead_score,assigned_to,updated_at
+John Doe,johndoe@example.com,9876543210,source123,85,userid123,2025-06-18T10:30:00.000Z
+Alice Smith,alice.smith@example.com,9876500000,source456,90,userid456,2025-06-18T12:00:00.000Z
+Ravi Kumar,ravi.kumar@example.com,9123456789,source789,75,userid789,2025-06-18T14:20:00.000Z

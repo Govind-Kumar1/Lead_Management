@@ -1,0 +1,5 @@
+name,email,phone,source_id,lead_score,assigned_to
+Ravi Kumar,ravi@example.com,9876543210,6645a89a0d33ff12107be5d9,80,6645b22a0a33bb22107be6f2
+Anjali Mehta,anjali@example.com,8765432109,6645a89a0d33ff12107be5d9,75,6645b22a0a33bb22107be6f2
+Rahul Singh,rahul@example.com,7654321098,6645a89a0d33ff12107be5d9,90,6645b22a0a33bb22107be6f2
+Pooja Sharma,pooja@example.com,6543210987,6645a89a0d33ff12107be5d9,60,6645b22a0a33bb22107be6f2

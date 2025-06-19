@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  
+}  
+
+datasource db { 
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+model Lead { 
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId // MongoDB's ObjectId
+  name        String
+  email       String?
+  phone       String?
+  source_id   String?  // Reference to Source
+  custom_fields  Json?
+  lead_score  Int?
+ assigned_to String? @map("assigned_to") // 👈 String for ObjectId reference
+ status         String   @default("New")
+  updated_at  DateTime @default(now())
+}
+
+model Source {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  channel_type String?
+  created_at   DateTime @default(now()) 
+}
+
+model User {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  name       String   // 👈 Add this line
+  email      String   @unique
+  password   String
+  role       String?
+  location   String?
+  workload   Int?
+  created_at DateTime @default(now())
+}
+
+
+model Followup { 
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  lead_id        String   // Reference to Lead
+
+  followup_date  DateTime
+  note           String?
+  completed      Boolean  @default(false)
+  created_by     String   // Reference to User
+}
+
+model Activity {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  type          String
+  content       String
+  performed_by  String   // Reference to User
+  activity_date DateTime
+}
